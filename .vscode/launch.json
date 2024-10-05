@@ -1,0 +1,40 @@
+{
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:MyNewBot}",
+            "name": "Debug MyNewBot",
+            "program": "${workspaceFolder:MyNewBot}/.build/debug/MyNewBot",
+            "preLaunchTask": "swift: Build Debug MyNewBot"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:MyNewBot}",
+            "name": "Release MyNewBot",
+            "program": "${workspaceFolder:MyNewBot}/.build/release/MyNewBot",
+            "preLaunchTask": "swift: Build Release MyNewBot"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:MyNewBot}",
+            "name": "Debug Darkbulb",
+            "program": "${workspaceFolder:MyNewBot}/.build/debug/Darkbulb",
+            "preLaunchTask": "swift: Build Debug Darkbulb"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:MyNewBot}",
+            "name": "Release Darkbulb",
+            "program": "${workspaceFolder:MyNewBot}/.build/release/Darkbulb",
+            "preLaunchTask": "swift: Build Release Darkbulb"
+        }
+    ]
+}
