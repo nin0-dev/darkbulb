@@ -18,7 +18,7 @@ struct Darkbulb: DiscordBotApp {
     bot = await BotGatewayManager(
       eventLoopGroup: httpClient.eventLoopGroup,
       httpClient: httpClient,
-      token: Config.token,
+      token: ProcessInfo.processInfo.environment["BOT_TOKEN"]!,
       largeThreshold: 250,
       presence: .init(activities: [], status: .online, afk: false),
       intents: [.messageContent, .guildMessages]
@@ -54,6 +54,7 @@ struct Darkbulb: DiscordBotApp {
                   title: "Bot information",
                   description: """
                   This bot is an instance of **darkbulb**, a Discord bot written in [Swift](https://swift.org) using [DDBKit](https://github.com/llsc12/DDBKit).
+                  You can find my code at [nin0-dev/darkbulb](https://github.com/nin0-dev/darkbulb).
                   > **⏲️ Uptime**: <t:\(String(Int(startTime))):R>
                   > **🛡️ Bot owner**: <@\(ProcessInfo.processInfo.environment["OWNER_ID"] ?? "Unknown")>
                   > **📊 Guild count**: in \(String(applicationInfo.approximate_guild_count!)) guild\((applicationInfo.approximate_guild_count! != 1) ? "s" : "")
