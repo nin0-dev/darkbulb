@@ -14,7 +14,9 @@ let package = Package(
       name: "Darkbulb",
       dependencies: [
         "DDBKit",
-        .product(name: "DotEnv", package: "DotEnv")
+        .product(name: "DotEnv", package: "DotEnv"),
+        .product(name: "DDBKitUtilities", package: "DDBKit"),
+        .product(name: "DDBKitFoundation", package: "DDBKit"),
       ]
     ),
   ]

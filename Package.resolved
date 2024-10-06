@@ -1,5 +1,5 @@
 {
-  "originHash" : "4e927ba7802cf09f830451b35720b93cab3dcf3dd914c5b632e9f514f87231b7",
+  "originHash" : "992d29f080956744b0deaa29b2262fe0940d82ee075efb64d6f0575d7b3443a9",
   "pins" : [
     {
       "identity" : "async-http-client",
@@ -16,7 +16,7 @@
       "location" : "https://github.com/llsc12/DDBKit",
       "state" : {
         "branch" : "main",
-        "revision" : "ca038c710fe5c796e4819a0912466c855b06e614"
+        "revision" : "f8eddd67d26639004fdb96289b746c5834ddf760"
       }
     },
     {
