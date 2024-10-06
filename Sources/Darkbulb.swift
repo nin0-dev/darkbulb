@@ -56,7 +56,7 @@ struct Darkbulb: DiscordBotApp {
                   This bot is an instance of **darkbulb**, a Discord bot written in [Swift](https://swift.org) using [DDBKit](https://github.com/llsc12/DDBKit).
                   You can find my code at [nin0-dev/darkbulb](https://github.com/nin0-dev/darkbulb).
                   > **⏲️ Uptime**: <t:\(String(Int(startTime))):R>
-                  > **🛡️ Bot owner**: <@\(ProcessInfo.processInfo.environment["OWNER_ID"] ?? "Unknown")>
+                  > **🛡️ Bot owner**: \(String(describing: applicationInfo.owner?.username)) <@\(String(describing: applicationInfo.owner?.id))>
                   > **📊 Guild count**: in \(String(applicationInfo.approximate_guild_count!)) guild\((applicationInfo.approximate_guild_count! != 1) ? "s" : "")
                   """,
                   color: Colors.info

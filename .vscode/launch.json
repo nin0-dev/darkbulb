@@ -22,18 +22,18 @@
             "type": "lldb",
             "request": "launch",
             "args": [],
-            "cwd": "${workspaceFolder:MyNewBot}",
+            "cwd": "${workspaceFolder:darkbulb-1}",
             "name": "Debug Darkbulb",
-            "program": "${workspaceFolder:MyNewBot}/.build/debug/Darkbulb",
+            "program": "${workspaceFolder:darkbulb-1}/.build/debug/Darkbulb",
             "preLaunchTask": "swift: Build Debug Darkbulb"
         },
         {
             "type": "lldb",
             "request": "launch",
             "args": [],
-            "cwd": "${workspaceFolder:MyNewBot}",
+            "cwd": "${workspaceFolder:darkbulb-1}",
             "name": "Release Darkbulb",
-            "program": "${workspaceFolder:MyNewBot}/.build/release/Darkbulb",
+            "program": "${workspaceFolder:darkbulb-1}/.build/release/Darkbulb",
             "preLaunchTask": "swift: Build Release Darkbulb"
         }
     ]
