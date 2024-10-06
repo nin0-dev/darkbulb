@@ -1,4 +1,5 @@
 import DDBKit
+import DDBKitUtilities
 import DotEnv
 import Foundation
 
@@ -7,6 +8,7 @@ struct Darkbulb: DiscordBotApp {
   
   init() async {
     let httpClient = HTTPClient()
+    startTime = Date().timeIntervalSince1970
     do {
       let env = try DotEnv.read(path: "./.env")
       env.load()
@@ -34,36 +36,37 @@ struct Darkbulb: DiscordBotApp {
   var body: [any BotScene] {
     ReadyEvent { ready in
       print("Logged in!")
-    }
-    Commands
+    } 
+    CoreCommands
+    TextManipCommands
   }
 
   var bot: Bot
   var cache: Cache
-  var Commands: Group {
+  var CoreCommands: Group {
     Group {
       Command("info") { interaction, cmd, db in
         do {
-          let applicationInfo = try await bot.client.getOwnApplication().decode()
-          let _ = try await bot.client.createInteractionResponse(
-            id: interaction.id,
-            token: interaction.token,
-            payload: .channelMessageWithSource(
-              .init(embeds: [
-                .init(
-                  title: "Bot information",
-                  description: """
-                  This bot is an instance of **darkbulb**, a Discord bot written in [Swift](https://swift.org) using [DDBKit](https://github.com/llsc12/DDBKit).
-                  You can find my code at [nin0-dev/darkbulb](https://github.com/nin0-dev/darkbulb).
-                  > **⏲️ Uptime**: <t:\(String(Int(startTime))):R>
-                  > **🛡️ Bot owner**: \(applicationInfo.owner?.username ?? "Unknown") (<@\(applicationInfo.owner?.id.rawValue ?? "Unknown")>)
-                  > **📊 Guild count**: in \(String(applicationInfo.approximate_guild_count!)) guild\((applicationInfo.approximate_guild_count! != 1) ? "s" : "")
-                  """,
-                  color: Colors.info
-                )
-              ])
-            )
-          )
+          let applicationInfo: DiscordApplication = try await bot.client.getOwnApplication().decode()
+          try? await bot.createInteractionResponse(to: interaction) {
+            Message {
+              MessageEmbed {
+                Title("Bot information")
+                Description {
+                  Text(
+                    """
+                    This bot is an instance of **darkbulb**, a Discord bot written in [Swift](https://swift.org) using [DDBKit](https://github.com/llsc12/DDBKit).
+                    You can find my code at [nin0-dev/darkbulb](https://github.com/nin0-dev/darkbulb).
+                    > **⏲️ Uptime**: <t:\(String(Int(startTime))):R>
+                    > **🛡️ Bot owner**: \(applicationInfo.owner?.username ?? "Unknown") (<@\(applicationInfo.owner?.id.rawValue ?? "Unknown")>)
+                    > **📊 Guild count**: in \(String(applicationInfo.approximate_guild_count!)) guild\((applicationInfo.approximate_guild_count! != 1) ? "s" : "")
+                    """
+                  )
+                }
+              }
+              .setColor(Colors.info!)
+            }
+          }
         }
         catch {}
       }
