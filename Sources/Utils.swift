@@ -1,7 +1,12 @@
 import DDBKit
 import Foundation
 
-let startTime = Date().timeIntervalSince1970
+var startTime = Date().timeIntervalSince1970
+func getRandomColor() -> DiscordColor {
+  let colors: [DiscordColor] = [.red, .orange, .yellow, .green, .mint, .teal, .cyan, .blue, .indigo, .purple, .pink, .brown, .gray]
+  return colors.randomElement() ?? .blue
+}
+
 struct Colors {
   static let info = DiscordColor(hex: "#35C0F3")
   static let success = DiscordColor(hex: "#7FFF91")
