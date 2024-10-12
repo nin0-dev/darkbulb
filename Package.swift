@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
   name: "Darkbulb",
   dependencies: [
-    .package(url: "https://github.com/llsc12/DDBKit", from: "0.1.1"),
+    .package(url: "https://github.com/llsc12/DDBKit", from: "0.1.3"),
     .package(url: "https://github.com/swiftpackages/DotEnv.git", from: "3.0.0"),
   ],
   targets: [
